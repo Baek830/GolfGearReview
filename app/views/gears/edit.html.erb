@@ -1,0 +1,13 @@
+<h1>Edit Gear</h1>
+
+<%= simple_form_for @gear, :html => { :multipart => true} do |f| %>
+  <%= f.file_field :image %>
+  <%= f.input :name, label: "Gear Name" %>
+  <%= f.input :description %>
+  <%= f.label :Maker %>
+  <%= f.select :maker_id, @makers %>
+  <%= f.label :club %>
+  <%= f.select :club_id, @clubs %>
+  <%= f.button :submit %>
+
+<% end %>
