@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-4">
-
-    <%= image_tag @gear.image.url %>
-  
+    <div class="gear-show">
+      <%= image_tag @gear.image.url %>
+    </div>
   </div>
 
   <div class="col-md-8">
@@ -10,44 +10,42 @@
       <h2 class="gear-title"><%= @gear.name %></h2>
       <h3 class="gear-maker"><%= @gear.maker.name %></h3>
       <h4 class="gear-club"><%= @gear.club.name %></h4>
-      <h4 class="avg-rating">Average Rating</h4>
-      <div class="average-review-rating" data-score=<%= @average_review %>>
-      <span class="number-of-reviews">Based on <%= @gear.reviews.count %> Reviews</span>
-      <p class="gear-desc"><%= @gear.description %></p>
+      <div class="gear-desc"><%= @gear.description %></div>
+      <div class="avg-rating">
+        <p>Average Rating</p>
+        <div class="average-review-rating" data-score=<%= @average_review %>></div>
+        <span class="number-of-reviews">Based on <%= @gear.reviews.count %> Reviews</span>
+      </div>
+    <div class="links btn-group">
+
+      <%= link_to "Back", root_path, class: "btn btn-custom" %>
+
+      <% if user_signed_in? %>
+
+        <% if @gear.user_id == current_user.id %>
+
+          <%= link_to "Edit", edit_gear_path(@gear), class: "btn btn-custom" %>
+          <%= link_to "Delete", gear_path(@gear), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+
+        <% end %>
+      
+      <% end %>
     </div>
   </div>
-
 </div>
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-12">
     <div class="reviews">
       <h1>Reviews</h1>
       <%= render @gear.reviews %>
-
-      <div>
-        <%= link_to "Add Review", new_gear_review_path(@gear) %>
-      </div>
+      <%= render partial: 'reviews/form', locals: {gear: @gear} %>
     </div>
   </div>
 </div>
 
-<div class="links btn-group">
 
-  <%= link_to "Back", root_path, class: "btn btn-custom" %>
 
-  <% if user_signed_in? %>
-
-    <% if @gear.user_id == current_user.id %>
-
-      <%= link_to "Edit", edit_gear_path(@gear), class: "btn btn-custom" %>
-      <%= link_to "Delete", gear_path(@gear), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
-
-    <% end %>
-    
-  <% end %>
-
-</div>
 
 <script>
   $('.review-rating').raty({

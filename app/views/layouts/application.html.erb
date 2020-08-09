@@ -17,10 +17,10 @@
           <%= link_to "Gear Review", root_path, class: "navbar-brand" %>
         </div>
         <ul class="nav navbar-nav">
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
             <li><%= link_to "Log In", new_user_session_path %></li>
           <% end %>
         </ul>
@@ -33,11 +33,10 @@
                 <li class="<%= 'active' if params[:maker] == maker.name %>">
                   <%= link_to maker.name, gears_path(maker: maker.name), class: "link" %>
                 </li>
-              <% end %>
-
-            
+              <% end %>    
             </ul>
           </li>
+
           <% if user_signed_in? %>
             <li><%= link_to "Add Gear", new_gear_path %></li>
           <% end %>
@@ -47,8 +46,9 @@
       </div>
     </nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-warning") %>
+      <% end %>
     <div class="container">
       <%= yield %>
     </div>

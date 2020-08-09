@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review.gear_id = @gear.id
     @review.user_id = current_user.id
     if @review.save
-      redirect_to gear_path(@gear)
+      redirect_to gear_path(@gear), notice: 'Review was successfully created.'
     else
       render 'new'
     end
@@ -22,12 +22,12 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to gear_path(@gear)
+    redirect_to gear_path(@gear), notice: 'Review was successfully deleted.'
   end
   
   def update
     if @review.update(review_params)
-      redirect_to gear_path(@gear)
+      redirect_to gear_path(@gear), notice: 'Review was successfully updated.'
     else
       render 'edit'
     end

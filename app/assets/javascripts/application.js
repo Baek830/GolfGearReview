@@ -14,6 +14,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery.raty.js
+//= require bootstrap-filestyle
 //= require activestorage
-//= require turbolinks
 //= require_tree .

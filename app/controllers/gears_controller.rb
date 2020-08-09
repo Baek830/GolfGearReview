@@ -6,7 +6,7 @@ class GearsController < ApplicationController
       @gears = Gear.all.order("created_at DESC")
     else
       @maker_id = Maker.find_by(name: params[:maker]).id
-      @gears = Gear.where(:maker_id => @maker_id).order("created_at DESC")
+      @gears = Gear.where(maker_id: @maker_id).order("created_at DESC")
     end
   end
 
@@ -19,32 +19,25 @@ class GearsController < ApplicationController
   end
 
   def new
-    @gear = current_user.gears.build
-    @makers = Maker.all.map{ |c| [c.name, c.id] }
-    @clubs = Club.all.map{ |c| [c.name, c.id] }
+    @gear = current_user.gears.new
   end
   
   def create
-    @gear = current_user.gears.build(gear_params)
-    @gear.maker_id = params[:maker_id]
-    @gear.club_id = params[:club_id]
+    @gear = current_user.gears.new(gear_params)
     if @gear.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Gear was successfully created.'
     else
       render 'new'
     end
   end
   
   def edit
-    @makers = Maker.all.map{ |c| [c.name, c.id] }
-    @clubs = Club.all.map{ |c| [c.name, c.id] }
+    # @gear.image.cache! unless @gear.image.blank?
   end
   
   def update
-    @gear.maker_id = params[:maker_id]
-    @gear.club_id = params[:club_id]
     if @gear.update(gear_params)
-      redirect_to gear_path(@gear)
+      redirect_to gear_path(@gear), notice: 'Gear was successfully updated.'
     else
       render 'edit'
     end
@@ -52,16 +45,17 @@ class GearsController < ApplicationController
   
   def destroy
     @gear.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: 'Gear was successfully destroyed.'
   end
 
   private
     def gear_params
-      params.require(:gear).permit(:name, :description, :club, :maker_id, :club_id, :image)
+      params.require(:gear).permit(:name, :description, :maker_id, :club_id, :image)
     end
 
     def find_gear
       @gear = Gear.find(params[:id])
     end
+
 end
 

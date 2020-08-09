@@ -121,6 +121,25 @@ p.alert, p.notice {
 	}	
 }
 
+.btn-secondary {
+	color: #333;
+	background-color: #fff;
+	border: 1px solid #222;
+	padding: 6px 20px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: #333;
+		color: #fff;
+		transition: 0.5s;
+	}	
+}
+
+.form-control {
+	border: 1px solid #222;
+}
+
 .links {
 
 	.btn-custom {
@@ -128,6 +147,7 @@ p.alert, p.notice {
 		font-weight: 300;
 	}
 
+	
 }
 
 .gear-links {
@@ -140,23 +160,34 @@ p.alert, p.notice {
 
 }
 
-/* Book styles */
+/* Gear styles */
 
-.gear {
-	height: 350px;
-	width: 250px;
-	margin-bottom: 40px;
-	@include background-tile;
+.col-xs-6 {
+	display: flex;
+	justify-content: center;
+	.gear {
+		img {
+			height: 150px;
+			width: 150px;
+			margin-bottom: 40px;
+			@include background-tile;
+		}
+	}
 }
 
+
 .gear-show {
-	height: 475px;
-	width: 325px;
-	@include background-tile;
+	img {
+		height: 310px;
+		width: 310px;
+		@include background-tile;
+		margin-bottom: 30px;
+	}
 }
 
 .gear-info {
 	@include background-tile;
+	margin-bottom: 40px;
 
 	.gear-title {
 		margin-top: 0;
@@ -164,26 +195,31 @@ p.alert, p.notice {
 	}
 
 	.avg-rating {
-		font-size: 1.5em;
-		margin-top: 15px;
-		margin-bottom: 5px;
+		display: flex;
+		line-height: 30px;
+		p {
+			display: block;
+			padding-right: 10px;
+		}
+		.number-of-reviews {
+			font-size: 0.8em;
+			font-style: italic;
+			padding-left: 10px;
+		}
 	}
 
-	.number-of-reviews {
-		font-size: 0.85em;
-		font-style: italic;
-	}
 
 	.gear-maker {
 		font-size: 1.5em;
-		margin-top: 10px;
+		margin-top: 0;
 		margin-bottom: 10px;
 		span {
 			font-size: 0.80em;
-		}	
+		}
+	}	
 	.gear-club {
 		font-size: 1.5em;
-		margin-top: 10px;
+		margin-top: 0;
 		margin-bottom: 10px;
 		span {
 			font-size: 0.80em;
@@ -191,12 +227,11 @@ p.alert, p.notice {
 	}
 
 	.gear-desc {
-		font-size: 1.05em;
+		font-size: 0.9em;
 		line-height: 1.5;
-		margin-bottom: 15px;
-		margin-top: 15px;
+		margin-bottom: 10px;
 	}
-	}
+	
 }
 
 /* current-category styles */
@@ -211,7 +246,8 @@ p.alert, p.notice {
 .reviews {
 
 	@include background-tile;
-	margin-top: 40px;
+	// margin-top: 40px;
+	margin-bottom: 20px;
 
 	h1 {
 		margin-top: 0;
@@ -239,21 +275,23 @@ p.alert, p.notice {
 
 /* New Book Form styles */
 
+select {
+	display: block;
+	margin-bottom: 20px;
+}
+
 .new-gear-form {
 	@include background-tile;
+	margin-bottom: 50px;
 
 	h1 {
 		margin-top: 0;
 	}
 
-	#maker_id {
-		margin-bottom: 10px;
+	.bootstrap-filestyle {
+		margin-bottom: 30px;
 	}
-
-	#gear_gear_img {
-		margin-bottom: 10px;
-	}
-
+	
 }
 
 
@@ -274,6 +312,8 @@ p.alert, p.notice {
 	#gear_gear_img {
 		margin-bottom: 10px;
 	}
+
+
 
 }
 
