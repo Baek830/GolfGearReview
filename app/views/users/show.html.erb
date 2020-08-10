@@ -1,0 +1,16 @@
+<div class="row">
+  <h1><%= @user.name %>'s Gear</h1>
+  <img src=<%= @user.image %> class = "icon_image">
+</div>
+
+  <% if @gears.count == 0 %>
+    <h2>Gearがありません</h2>
+  <% else %>
+    <div class="row">
+      <% @gears.each do |gear| %>
+        <div class="col-xs-6 col-sm-3">
+          <%= link_to (image_tag gear.image.url), gear, class: "gear" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
