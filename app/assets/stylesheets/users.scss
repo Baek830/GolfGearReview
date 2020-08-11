@@ -1,12 +1,113 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.icon_image {
-  width: 150px;
-  height: 150px;
-  //サイズ指定
-  border-radius: 100px;
-  //画像を丸くする
-  object-fit: cover;
-  //タテヨコ比を変えないままトリミング
+@import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500); 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+
+@mixin background-tile {
+	box-sizing: border-box;
+	background-color: #fff;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  padding: 8px;
+  border-radius: 3px;
+}
+
+.title {
+	font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  .icon_image {
+    @include background-tile;
+    width: 150px;
+    height: 150px;
+    //サイズ指定
+    border-radius: 100px;
+    //画像を丸くする
+    object-fit: cover;
+    //タテヨコ比を変えないままトリミング
+    margin: 0;
+
+  }
+  h1 {
+    margin: 0;
+    line-height: 150px;
+  }
+  .player-name {
+    color: #222;
+    text-decoration: none;
+    text-align: center;
+  }
+}
+
+/* Signup/Login form styles */
+
+.signup-form {
+	@include background-tile;
+	h2 {
+		margin-top: 0;
+	}
+}
+
+.login-container {
+  @include background-tile;
+
+	h2 {
+		margin-top: 0;
+	}
+
+}
+
+.club-card {
+  position: relative;
+  @include background-tile;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  &:hover {
+    transition: 0.5s;
+    box-shadow: none;
+  }
+  &-empty {
+    @include background-tile;
+    margin-bottom: 20px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    h2 {
+      margin: auto;
+    }
+
+  }
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .gear {
+    height: 150px;
+    width: 150px;
+  }
+  &-desc {
+    h2, h3 {
+      margin: 0 20px 10px;
+      color: #222;
+    }
+  }
+}
+
+.club-card-link:hover {
+  text-decoration: none;
+
 }

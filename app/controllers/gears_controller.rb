@@ -2,6 +2,7 @@ class GearsController < ApplicationController
   before_action :find_gear, only: [:show, :edit, :update, :destroy ]
   before_action :authenticate_user!, only: [:new, :edit]
   def index
+    @users = User.all.order("created_at DESC")
     if params[:maker].blank?
       @gears = Gear.all.order("created_at DESC")
     else
@@ -32,7 +33,6 @@ class GearsController < ApplicationController
   end
   
   def edit
-    # @gear.image.cache! unless @gear.image.blank?
   end
   
   def update

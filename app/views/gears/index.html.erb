@@ -1,14 +1,23 @@
-  <h1 class="current-maker"><%= params[:maker] %></h1>
+<div class="row">
+  <h1 class="title">Players</h1>
+    <% @users.each do |user| %>
+      <div class="col-xs-6 col-sm-3">
+        <%= link_to (image_tag user.image.url, class: "icon_image"), user %>
+      </div>
+    <% end %>
+</div>
 
 
+<div class="row">
+  <h1 class="title"><%= params[:maker] %></h1>
     <% if @gears.count == 0 %>
       <h2>Gearがありません</h2>
     <% else %>
-      <div class="row">
+      <h1 class="title">Gears</h1>
         <% @gears.each do |gear| %>
           <div class="col-xs-6 col-sm-3">
             <%= link_to (image_tag gear.image.url), gear, class: "gear" %>
           </div>
         <% end %>
-      </div>
     <% end %>
+</div>

@@ -1,16 +1,164 @@
 <div class="row">
-  <h1><%= @user.name %>'s Gear</h1>
-  <img src=<%= @user.image %> class = "icon_image">
+  <div class="profile">
+    <% if @user.image.blank? %>
+      <%= image_tag 'theplayers.png', class: "icon_image" %>
+    <% else %>
+      <img src=<%= @user.image %> class = "icon_image">
+    <% end %>
+
+    <% if user_signed_in? %>
+      <% if @user.id == current_user.id %>
+        <h1><%= link_to @user.name, edit_user_registration_path(@user), class: "player-name" %></h1>
+      <% else %>
+        <div class="player-name"><h1><%= @user.name %></h1></div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
-  <% if @gears.count == 0 %>
-    <h2>Gearがありません</h2>
-  <% else %>
-    <div class="row">
-      <% @gears.each do |gear| %>
-        <div class="col-xs-6 col-sm-3">
-          <%= link_to (image_tag gear.image.url), gear, class: "gear" %>
-        </div>
+<div class="row">
+  <div class="club">
+    <h1>Driver</h1>
+      <% if @drivers.empty? %>
+        <div class="club-card-empty"><h2>No Club</h2></div>
+      <% else %>
+        <% @drivers.each do |driver| %>
+          <%= link_to(gear_path(driver), class: "club-card-link") do %>
+            <div class="club-card">
+              <%= image_tag driver.image.url, class: "gear" %>
+              <div class="club-card-desc">
+                <h2><%= driver.name %></h2>
+                <h3><%= driver.maker.name %></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       <% end %>
-    </div>
-  <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="club">
+    <h1>FairwayWood</h1>
+      <% if @fairwaywoods.empty? %>
+        <div class="club-card-empty"><h2>No Club</h2></div>
+      <% else %>
+        <% @fairwaywoods.each do |fairwaywood| %>
+          <%= link_to(gear_path(fairwaywood), class: "club-card-link") do %>
+            <div class="club-card">
+              <%= image_tag fairwaywood.image.url, class: "gear" %>
+              <div class="club-card-desc">
+                <h2><%= fairwaywood.name %></h2>
+                <h3><%= fairwaywood.maker.name %></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="club">
+    <h1>Utility</h1>
+      <% if @utilitys.empty? %>
+        <div class="club-card-empty"><h2>No Club</h2></div>
+      <% else %>
+        <% @utilitys.each do |utility| %>
+          <%= link_to(gear_path(utility), class: "club-card-link") do %>
+            <div class="club-card">
+              <%= image_tag utility.image.url, class: "gear" %>
+              <div class="club-card-desc">
+                <h2><%= utility.name %></h2>
+                <h3><%= utility.maker.name %></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="club">
+    <h1>Iron</h1>
+      <% if @irons.empty? %>
+        <div class="club-card-empty"><h2>No Club</h2></div>
+      <% else %>
+        <% @irons.each do |iron| %>
+          <%= link_to(gear_path(iron), class: "club-card-link") do %>
+            <div class="club-card">
+              <%= image_tag iron.image.url, class: "gear" %>
+              <div class="club-card-desc">
+                <h2><%= iron.name %></h2>
+                <h3><%= iron.maker.name %></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="club">
+    <h1>Wedge</h1>
+      <% if @wedges.empty? %>
+        <div class="club-card-empty"><h2>No Club</h2></div>
+      <% else %>
+        <% @wedges.each do |wedge| %>
+          <%= link_to(gear_path(wedge), class: "club-card-link") do %>
+            <div class="club-card">
+              <%= image_tag wedge.image.url, class: "gear" %>
+              <div class="club-card-desc">
+                <h2><%= wedge.name %></h2>
+                <h3><%= wedge.maker.name %></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="club">
+    <h1>Putter</h1>
+      <% if @putters.empty? %>
+        <div class="club-card-empty"><h2>No Club</h2></div>
+      <% else %>
+        <% @putters.each do |putter| %>
+          <%= link_to(gear_path(putter), class: "club-card-link") do %>
+            <div class="club-card">
+              <%= image_tag putter.image.url, class: "gear" %>
+              <div class="club-card-desc">
+                <h2><%= putter.name %></h2>
+                <h3><%= putter.maker.name %></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="club">
+    <h1>Ball</h1>
+      <% if @balls.empty? %>
+        <div class="club-card-empty"><h2>No Club</h2></div>
+      <% else %>
+        <% @balls.each do |ball| %>
+          <%= link_to(gear_path(ball), class: "club-card-link") do %>
+            <div class="club-card">
+              <%= image_tag ball.image.url, class: "gear" %>
+              <div class="club-card-desc">
+                <h2><%= ball.name %></h2>
+                <h3><%= ball.maker.name %></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+</div>

@@ -1,3 +1,36 @@
 // Place all the styles related to the Gears controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+@mixin background-tile {
+	box-sizing: border-box;
+	background-color: #fff;
+  box-shadow: 3px 3px 5px 6px #ccc;
+	padding: 8px;
+}
+
+.title {
+	font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+
+.icon_image {
+  @include background-tile;
+  width: 150px;
+  height: 150px;
+  //サイズ指定
+  border-radius: 100px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+  margin-bottom: 40px;
+  &:hover {
+    transition: 0.5s;
+    box-shadow: none;
+  }
+}
