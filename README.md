@@ -12,11 +12,11 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
-- User table
-- Gear table
-- Maker table
-- Club table
-- Review table
+  - User table
+  - Gear table
+  - Maker table
+  - Club table
+  - Review table
 
 * Database initialization
 
