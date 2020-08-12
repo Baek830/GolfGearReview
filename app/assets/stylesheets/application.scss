@@ -166,7 +166,6 @@ p.alert, p.notice {
 	display: flex;
 	justify-content: center;
 	.gear {
-		img {
 			height: 150px;
 			width: 150px;
 			margin-bottom: 40px;
@@ -174,7 +173,6 @@ p.alert, p.notice {
 			&:hover {
 				transition: 0.5s;
 				box-shadow: none;
-			}
 		}
 	}
 }

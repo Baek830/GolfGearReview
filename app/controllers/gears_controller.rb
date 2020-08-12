@@ -4,7 +4,7 @@ class GearsController < ApplicationController
   def index
     @users = User.all.order("created_at DESC")
     if params[:maker].blank?
-      @gears = Gear.all.order("created_at DESC")
+      @gears = Gear.includes(:user).order("created_at DESC")
     else
       @maker_id = Maker.find_by(name: params[:maker]).id
       @gears = Gear.where(maker_id: @maker_id).order("created_at DESC")

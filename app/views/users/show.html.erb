@@ -1,17 +1,27 @@
 <div class="row">
   <div class="profile">
-    <% if @user.image.blank? %>
-      <%= image_tag 'theplayers.png', class: "icon_image" %>
+    <% if user_signed_in? && @user.id == current_user.id %>
+
+      <% if @user.image.blank? %>
+        <%= link_to (image_tag 'theplayers.png', class: "icon_image"), edit_user_registration_path(@user) %> 
+      <% else %>
+        <%= link_to (image_tag @user.image.url, class: "icon_image"), edit_user_registration_path(@user) %> 
+      <% end %>
+    
     <% else %>
-      <img src=<%= @user.image %> class = "icon_image">
+
+      <% if @user.image.blank? %>
+        <%= image_tag 'theplayers.png', class: "icon_image" %>
+      <% else %>
+        <%= image_tag @user.image.url, class: "icon_image" %>
+      <% end %>
+
     <% end %>
 
-    <% if user_signed_in? %>
-      <% if @user.id == current_user.id %>
-        <h1><%= link_to @user.name, edit_user_registration_path(@user), class: "player-name" %></h1>
-      <% else %>
-        <div class="player-name"><h1><%= @user.name %></h1></div>
-      <% end %>
+    <% if user_signed_in? && @user.id == current_user.id %>
+      <h1><%= link_to @user.name, edit_user_registration_path(@user), class: "player-name" %></h1>
+    <% else %>
+      <div class="player-name"><h1><%= @user.name %></h1></div>
     <% end %>
   </div>
 </div>

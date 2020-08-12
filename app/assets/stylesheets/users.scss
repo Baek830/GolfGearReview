@@ -36,7 +36,10 @@
     object-fit: cover;
     //タテヨコ比を変えないままトリミング
     margin: 0;
-
+    &:hover {
+      transition: 0.5s;
+      box-shadow: none;
+    }
   }
   h1 {
     margin: 0;
