@@ -5,13 +5,18 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.5.1
 
 * System dependencies
 
 * Configuration
 
 * Database creation
+  - User table
+  - Gear table
+  - Maker table
+  - Club table
+  - Review table
 
 * Database initialization
 
