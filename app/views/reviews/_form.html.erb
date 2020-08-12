@@ -1,13 +1,16 @@
-<%= form_with(model: [@gear, @gear.reviews.new], local: true) do |f| %>
-  <div id="rating-form">
-    <label>Rating</label>
-  </div>
-  <div class="form-group">
-    <%= f.label :comment, "Comment" %>
-    <%= f.text_area :comment, {class: "form-control"} %>
-  </div>
-    <%= f.button :post, {class: "btn-custom2"} %>
-<% end %>
+<% if user_signed_in? %>
+  <%= form_with(model: [@gear, @gear.reviews.new], local: true) do |f| %>
+    <div id="rating-form">
+      <label>Rating</label>
+    </div>
+    <div class="form-group">
+      <%= f.label :comment, "Comment" %>
+      <%= f.text_area :comment, {class: "form-control"} %>
+    </div>
+      <%= f.button :post, {class: "btn-custom2"} %>
+    <% end %>
+  <% end %>
+
 
 <script>
   $('#rating-form').raty({

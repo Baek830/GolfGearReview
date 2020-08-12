@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :find_user
   
   def show
-    @gears = @user.gears
+    @gears = @user.gears.includes(:maker)
     @drivers = @gears.where(club_id: 1)
     @fairwaywoods = @gears.where(club_id: 2)
     @utilitys = @gears.where(club_id: 3)

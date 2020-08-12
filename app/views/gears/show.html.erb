@@ -1,35 +1,29 @@
 <div class="row">
-  <div class="col-md-4">
-    <div class="gear-show">
-      <%= image_tag @gear.image.url %>
-    </div>
-  </div>
-
-  <div class="col-md-8">
-    <div class="gear-info">
-      <h2 class="gear-title"><%= @gear.name %></h2>
-      <h3 class="gear-maker"><%= @gear.maker.name %></h3>
-      <h4 class="gear-club"><%= @gear.club.name %></h4>
-      <div class="gear-desc"><%= @gear.description %></div>
-      <div class="avg-rating">
-        <p>Average Rating</p>
-        <div class="average-review-rating" data-score=<%= @average_review %>></div>
-        <span class="number-of-reviews">Based on <%= @gear.reviews.count %> Reviews</span>
+  <div class="col-md-12">
+    <div class="showpage-top">
+      <div class="col-md-4">      
+        <%= image_tag @gear.image.url, class: "gear-image" %>
       </div>
-    <div class="links btn-group">
-
-      <%= link_to "Back", root_path, class: "btn btn-custom" %>
-
-      <% if user_signed_in? %>
-
-        <% if @gear.user_id == current_user.id %>
-
-          <%= link_to "Edit", edit_gear_path(@gear), class: "btn btn-custom" %>
-          <%= link_to "Delete", gear_path(@gear), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
-
-        <% end %>
-      
-      <% end %>
+      <div class="col-md-8">
+        <div class="gear-info">
+          <h2 class="gear-title"><%= @gear.name %></h2>
+          <h3 class="gear-maker"><%= @gear.maker.name %></h3>
+          <h4 class="gear-club"><%= @gear.club.name %></h4>
+          <div class="gear-desc"><%= @gear.description %></div>
+          <div class="avg-rating">
+            <p>Average Rating</p>
+            <div class="average-review-rating" data-score=<%= @average_review %>></div>
+            <span class="number-of-reviews">Based on <%= @gear.reviews.count %> Reviews</span>
+          </div>
+          <div class="links btn-group">
+            <%= link_to "Back", root_path, class: "btn btn-custom" %>
+            <% if user_signed_in? && @gear.user_id == current_user.id %>
+              <%= link_to "Edit", edit_gear_path(@gear), class: "btn btn-custom" %>
+              <%= link_to "Delete", gear_path(@gear), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -37,8 +31,12 @@
 <div class="row">
   <div class="col-md-12">
     <div class="reviews">
-      <h1>Reviews</h1>
-      <%= render @gear.reviews %>
+      <% if @gear.reviews.empty? %>
+        <h4>Not Reviewed Yet</h4>
+      <% else %>
+        <h1>Reviews</h1>
+        <%= render @gear.reviews %>
+      <% end %>
       <%= render partial: 'reviews/form', locals: {gear: @gear} %>
     </div>
   </div>
