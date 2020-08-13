@@ -48,8 +48,8 @@
 <script>
   $('.review-rating').raty({
     readOnly: true,
-    starOn: image-url('/assets/star-on.png'),
-    starOff: image-url('/assets/star-off.png'),
+    starOn: '/assets/star-on.png',
+    starOff: '/assets/star-off.png',
     score: function() {
       return $(this).attr('data-score');
     }
