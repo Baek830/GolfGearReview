@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: :show
+  before_action :find_user
   
   def show
     @gears = @user.gears.includes(:maker)
