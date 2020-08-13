@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.14.1"
 
-set :application, "Golf Gear Review"
+set :application, "GolfGearReview"
 set :repo_url, "git@github.com:Baek830/GolfGearReview.git"
 
 # Default branch is :master
