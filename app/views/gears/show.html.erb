@@ -48,8 +48,8 @@
 <script>
   $('.review-rating').raty({
     readOnly: true,
-    starOn: '/star-on.png',
-    starOff: '/star-off.png',
+    starOn: asset_path('star-on.png'),
+    starOff: asset_path('star-off.png'),
     score: function() {
       return $(this).attr('data-score');
     }
@@ -58,9 +58,9 @@
 <script>
   $('.average-review-rating').raty({
     readOnly: true,
-    starOn: '/star-on.png',
-    starOff: '/star-off.png',
-    starHalf: '/star-half.png',
+    starOn: asset_path('star-on.png'),
+    starOff: asset_path('star-off.png'),
+    starHalf: asset_path('star-half.png'),
     score: function() {
       return $(this).attr('data-score')
     }
