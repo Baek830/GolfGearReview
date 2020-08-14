@@ -1,5 +1,5 @@
 <div class="row">
-  <h1 class="title">Players</h1>
+  <h1 class="title">PLAYERS</h1>
     <% @users.each do |user| %>
       <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
         <%= link_to (image_tag user.image.url, class: "icon_image"), user %>
@@ -11,9 +11,9 @@
 <div class="row">
   <h1 class="title"><%= params[:maker] %></h1>
     <% if @gears.count == 0 %>
-      <h2>Gearがありません</h2>
+      <h2>No Gear</h2>
     <% else %>
-      <h1 class="title">Gears</h1>
+      <h1 class="title">GEARS</h1>
         <% @gears.each do |gear| %>
           <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
             <%= link_to (image_tag gear.image.url, class: "gear"), gear %>
