@@ -48,8 +48,9 @@
 <script>
   $('.review-rating').raty({
     readOnly: true,
-    starOn: '/assets/star-on.png',
-    starOff: '/assets/star-off.png',
+    path: '/assets/',
+    // starOn: '/assets/star-on.png',
+    // starOff: '/assets/star-off.png',
     score: function() {
       return $(this).attr('data-score');
     }
@@ -58,9 +59,10 @@
 <script>
   $('.average-review-rating').raty({
     readOnly: true,
-    starOn: '/assets/star-on.png',
-    starOff: '/assets/star-off.png',
-    starHalf: '/assets/star-half.png',
+    path: '/assets/',
+    // starOn: '/assets/star-on.png',
+    // starOff: '/assets/star-off.png',
+    // starHalf: '/assets/star-half.png',
     score: function() {
       return $(this).attr('data-score')
     }
