@@ -46,10 +46,10 @@
 	.showpage-top {
 		@include background-tile;
 		display: block;
-		// justify-content: center;
 		align-items: center;
 		padding-top: 40px;
 		padding-bottom: 40px;
+		text-align: center;
 		.gear-image {
 			max-width: 200px;
 			width: 100%;
