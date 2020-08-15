@@ -42,6 +42,23 @@
   }
 }
 
+@media screen and(max-width:767px){
+	.showpage-top {
+		@include background-tile;
+		display: block;
+		// justify-content: center;
+		align-items: center;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		.gear-image {
+			max-width: 200px;
+			width: 100%;
+			height: 200px;
+		}
+	}
+}
+
+
 .gear-info {
 
 	.gear-title {
