@@ -48,9 +48,9 @@
 <script>
   $('.review-rating').raty({
     readOnly: true,
-    path: '/assets/',
-    // starOn: '/assets/star-on.png',
-    // starOff: '/assets/star-off.png',
+    // path: '/assets/',
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
     score: function() {
       return $(this).attr('data-score');
     }
@@ -59,10 +59,12 @@
 <script>
   $('.average-review-rating').raty({
     readOnly: true,
-    path: '/assets/',
+    // path: '/assets/',
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
     // starOn: '/assets/star-on.png',
     // starOff: '/assets/star-off.png',
-    // starHalf: '/assets/star-half.png',
+    starHalf: "<%= asset_path('star-half.png') %>",
     score: function() {
       return $(this).attr('data-score')
     }
