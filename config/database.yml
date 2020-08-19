@@ -49,7 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: GolfGearReview_production
-  username: root
+  # database: GolfGearReview_production
+  url: <%= ENV['DATABASE_URL'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  master_key: <%= ENV['RAILS_MASTER_KEY'] %>
+  # socket: /var/lib/mysql/mysql.sock
