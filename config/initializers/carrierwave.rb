@@ -13,6 +13,7 @@ if Rails.env.production?
       :aws_secret_access_key => ENV['AWS_IAM_ACCESS_KEY']
     }
     config.fog_directory     =  ENV['AWS_S3_BUCKET']
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/golfgearreview'
     # キャッシュの保存期間
     config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" }
   end
