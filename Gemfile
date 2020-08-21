@@ -46,6 +46,7 @@ gem 'jquery-rails'
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 
 group :production do
   # gem 'unicorn', '5.4.1'
