@@ -39,6 +39,10 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
+group :production do
+  gem 'unicorn', '5.4.1'
+  gem 'rails_12factor'
+end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -47,8 +51,3 @@ gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
-
-group :production do
-  gem 'unicorn', '5.4.1'
-  gem 'rails_12factor'
-end
